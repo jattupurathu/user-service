@@ -22,7 +22,14 @@ public class UserRegistrationModel {
 	private String state = null;
 	private String pincode = null;
 	private String password = null;
+	private String mobile = null;
 	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public String getPassword() {
 		return password;
 	}

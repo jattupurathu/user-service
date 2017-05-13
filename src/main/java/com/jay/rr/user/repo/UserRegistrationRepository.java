@@ -12,6 +12,7 @@ public interface UserRegistrationRepository extends MongoRepository<UserRegistra
 	
 	public UserRegistrationModel findByFirstName(String firstName);
 	public UserRegistrationModel findByEmail(String email);
+	public UserRegistrationModel findByMobile(String mobile);
 	public long deleteByEmail(String email);
     public List<UserRegistrationModel> findByLastName(String lastName);
 }

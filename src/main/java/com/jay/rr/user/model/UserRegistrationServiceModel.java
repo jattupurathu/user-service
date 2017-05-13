@@ -7,12 +7,22 @@ public class UserRegistrationServiceModel {
 	private String email = null;
 	private String password = null;
 	private String add1 = null;
+	
 	private String add2 = null;
 	private String add3 = null;
 	private String city = null;
 	private String state = null;
 	private String pincode = null;
+	private String mobile = null;
 	
+	
+	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -79,19 +89,19 @@ public class UserRegistrationServiceModel {
 				+ email + ", password=" + password + ", add1=" + add1 + ", add2=" + add2 + ", add3=" + add3
 				+ ", city=" + city + ", state=" + state + ", pincode=" + pincode + "]";
 	}
-	public UserRegistrationServiceModel(String firstName, String lastName, String email, String password,
-			String add1, String add2, String add3, String city, String state, String pincode) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.add1 = add1;
-		this.add2 = add2;
-		this.add3 = add3;
-		this.city = city;
-		this.state = state;
-		this.pincode = pincode;
-	}
+//	public UserRegistrationServiceModel(String firstName, String lastName, String email, String password,
+//			String add1, String add2, String add3, String city, String state, String pincode) {
+//		super();
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.email = email;
+//		this.password = password;
+//		this.add1 = add1;
+//		this.add2 = add2;
+//		this.add3 = add3;
+//		this.city = city;
+//		this.state = state;
+//		this.pincode = pincode;
+//	}
 	
 }
