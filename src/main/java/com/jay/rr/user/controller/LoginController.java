@@ -10,7 +10,7 @@ import com.jay.rr.user.common.IConstants;
 import com.jay.rr.user.service.LoginService;
 
 @RestController
-@RequestMapping(IConstants.LOGIN_REQUEST_MAPPING+"/{email}/{password}")
+@RequestMapping(IConstants.LOGIN_REQUEST_MAPPING+"/{mobile}/{password}")
 
 public class LoginController {
 	
@@ -19,8 +19,8 @@ public class LoginController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-    public String login(@PathVariable String email, @PathVariable String password) {
-		return loginService.login(email, password);
+    public String login(@PathVariable String mobile, @PathVariable String password) {
+		return loginService.login(mobile, password);
 	}
 
 }

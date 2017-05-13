@@ -13,14 +13,13 @@ public class RegistrationService {
 	@Autowired
 	UserRegistrationRepository userRegistrationRepository;
 	
-	@Autowired
-	EmailValidator emailValidator;
 	String reasonCode = "done";
 
 	public String register(UserRegistrationServiceModel model) {
 
 		// check if the mobile is already present.
 		UserRegistrationModel mod = userRegistrationRepository.findByMobile(model.getMobile());
+		
 		if (mod != null) {
 			// user is already registered
 			reasonCode = "user already registered";
@@ -29,12 +28,13 @@ public class RegistrationService {
 			 * Mandatory Data First Name, Last Name, Mobile and Email
 			 * 
 			 */
+			EmailValidator emailValidator = new EmailValidator();
 			if (model.getFirstName() == null || model.getFirstName().trim().isEmpty()) {
 				reasonCode = "First Name is Mandatory";
 			} else if (model.getLastName() == null || model.getLastName().trim().isEmpty()) {
 				reasonCode = "Last Name is Mandatory";
 			}else if (model.getEmail() == null || model.getEmail().trim().isEmpty() || !emailValidator.validate(model.getEmail())) {
-				reasonCode ="Invalid email - "+model.getEmail();
+				reasonCode ="Invalid email - "+model.getEmail();	
 			}else if (model.getMobile() == null || model.getMobile().trim().isEmpty() || !validateMobile(model.getMobile())) {
 				reasonCode ="Invalid Mobile number - "+model.getMobile();
 			}else{
@@ -49,7 +49,9 @@ public class RegistrationService {
 				uModel.setCity(model.getCity());
 				uModel.setState(model.getState());
 				uModel.setPincode(model.getPincode());
+				uModel.setMobile(model.getMobile());
 				userRegistrationRepository.insert(uModel);
+				reasonCode = "done";
 			}
 		}
 		return reasonCode;

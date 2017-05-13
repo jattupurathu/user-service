@@ -10,7 +10,6 @@ public class UserRegistrationModel {
 	@Id
 	private String Id = null;
 	
-	@Indexed(unique = true)
     private String email;
 
 	private String firstName = null;
@@ -22,6 +21,7 @@ public class UserRegistrationModel {
 	private String state = null;
 	private String pincode = null;
 	private String password = null;
+	@Indexed(unique = true)
 	private String mobile = null;
 	
 	public String getMobile() {
