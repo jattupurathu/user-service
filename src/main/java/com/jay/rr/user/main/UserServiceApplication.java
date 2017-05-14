@@ -11,8 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.jay.rr.user"})
-@EnableMongoRepositories ("com.jay.rr.user.repo")
+@ComponentScan(basePackages={"com.jay.rr.user","com.jay.rr.merchant"})
+@EnableMongoRepositories ("com.jay.rr")
 public class UserServiceApplication {
 
     public static void main(String[] args) {
