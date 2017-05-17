@@ -3,22 +3,23 @@ package com.jay.rr.merchant.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jay.rr.merchant.model.MRegistrationModel;
+import com.jay.rr.merchant.model.MRegistrationServiceModel;
+import com.jay.rr.merchant.repo.MRegistrationRepository;
 import com.jay.rr.user.common.EmailValidator;
 import com.jay.rr.user.model.UserRegistrationModel;
-import com.jay.rr.user.model.UserRegistrationServiceModel;
-import com.jay.rr.user.repo.UserRegistrationRepository;
 
 @Service
 public class MRegistrationService {
 	@Autowired
-	UserRegistrationRepository userRegistrationRepository;
+	MRegistrationRepository mRegistrationRepository;
 	
 	String reasonCode = "done";
 
-	public String register(UserRegistrationServiceModel model) {
+	public String register(MRegistrationServiceModel model) {
 
 		// check if the mobile is already present.
-		UserRegistrationModel mod = userRegistrationRepository.findByMobile(model.getMobile());
+		MRegistrationModel mod = mRegistrationRepository.findByMobile(model.getMobile());
 		
 		if (mod != null) {
 			// user is already registered
@@ -50,7 +51,7 @@ public class MRegistrationService {
 				uModel.setState(model.getState());
 				uModel.setPincode(model.getPincode());
 				uModel.setMobile(model.getMobile());
-				userRegistrationRepository.insert(uModel);
+				mRegistrationRepository.insert(uModel);
 				reasonCode = "done";
 			}
 		}

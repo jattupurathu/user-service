@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jay.rr.merchant.service.MLoginService;
 import com.jay.rr.user.common.IConstants;
 import com.jay.rr.user.service.LoginService;
 
@@ -15,12 +16,12 @@ import com.jay.rr.user.service.LoginService;
 public class MLoginController {
 	
 	@Autowired
-	LoginService loginService ; 
+	MLoginService mLoginService ; 
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
     public String login(@PathVariable String mobile, @PathVariable String password) {
-		return loginService.login(mobile, password);
+		return mLoginService.login(mobile, password);
 	}
 
 }
